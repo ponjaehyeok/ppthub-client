@@ -5,12 +5,13 @@ PPTHUB는 다른 PPT 파일을 비교하고 관리할 수 있는 웹 서비스�
 두 개의 PPT 파일을 비교해 다른 부분을 찾아내고, 원하는 데이터를 선택해 새로운 PPT 파일을 생성할 수 있습니다.
 <br/>
 <br/>
+[프로젝트 발표 영상][]
 
-[프로젝트 발표 영상](https://youtu.be/xN-_v7OB0PM?t=2734)
+[프로젝트 발표 영상]: https://youtu.be/xN-_v7OB0PM?t=2734
 
-[PPTHub 링크](https://www.ppthub.online/)
-<br/>
-<br/>
+[PPTHub 링크][]
+
+[PPTHub 링크]: https://www.ppthub.online/
 
 <details>
   <summary>실 사용 화면</summary>  
@@ -64,8 +65,9 @@ XML은 HTML와 비슷하게 Tag를 열고 닫아 작성하는 Element의 구조�
 
 XML을 Web API인 Dom Parser를 이용해서 Dom으로 Parsing하였습니다. 그 다음은 DOM API를 이용해 프로퍼티 및 자식 요소에 접근할 수 있었습니다.
 
-[PPT → XML DOM 기술 검증 과정](https://www.notion.so/pptx-xml-xml-DOM-44b80519236f41e6b8274ee12340ca51)
-<br/>
+[PPT → XML DOM 기술 검증 과정][]
+
+[PPT → XML DOM 기술 검증 과정]: https://gongjaehyeok.notion.site/pptx-xml-xml-DOM-44b80519236f41e6b8274ee12340ca51
 <br/>
 
 #### Frontend와 Backend 중 어디에서 실행할 지 결정하기
@@ -76,8 +78,9 @@ Node.js와 같은 환경에서는 별도로 문자열을 DOM으로 Parsing해주
 
 단순히 HTML뿐 아니라 XML을 Parsing 해주는 다른 라이브러리를 알아보았지만 기존에 작성했던 Dom Parser로 작성된 코드를 전반적으로 수정해야 했습니다.
 
-[Node.js 써드파티 라이브러리 XML Parsing 기술 검증 과정](https://www.notion.so/xml2js-041bf9c9f5a34419a684c4aeca3c34cf)
-<br/>
+[Node.js 써드파티 라이브러리 XML Parsing 기술 검증 과정][]
+
+[Node.js 써드파티 라이브러리 XML Parsing 기술 검증 과정]: https://gongjaehyeok.notion.site/xml2js-041bf9c9f5a34419a684c4aeca3c34cf
 <br/>
 
 또 저희가 고려했던 점은, PPT를 Parsing하는 작업은 Client에서 실행되기에 너무 오래걸리는 작업이 아닐까 했던 것인데요.
@@ -122,8 +125,9 @@ PPT 파일에서 보통 하나의 슬라이드마다 하나의 XML 파일을 가
 
 2주라는 제한된 개발 기간동안 개발을 마치기 위해서 일단 Text와 Image 데이터를 우선 Parsing하기로 결정하였습니다.
 
-[PPT 파일 View Data 추출 기술 검증 과정](https://www.notion.so/pptx-view-data-13a25b7ff31442d0b5530fa55174596e)
-<br/>
+[PPT 파일 View Data 추출 기술 검증 과정][]
+
+[PPT 파일 View Data 추출 기술 검증 과정]: https://gongjaehyeok.notion.site/pptx-view-data-13a25b7ff31442d0b5530fa55174596e
 <br/>
 
 ## ⚡️ 두 개의 PPT를 어떻게 비교할 수 있을까? - Diffing
@@ -161,8 +165,9 @@ PPT 파일에서 보통 하나의 슬라이드마다 하나의 XML 파일을 가
 
 였습니다. 여러 슬라이드 내부 데이터 중, 해당 조건에 부합하는 값(`p:creationId`)을 찾아내 매칭에 사용하였습니다.
 
-[Slide 비교 감지 기술 검증 과정](https://www.notion.so/Slide-50ccacafcc8941d7ac59d1a5392f35c1) 
-<br/>
+[Slide 비교 감지 기술 검증 과정][]
+
+[Slide 비교 감지 기술 검증 과정]: https://gongjaehyeok.notion.site/Slide-50ccacafcc8941d7ac59d1a5392f35c1
 <br/>
 
 또, Set 자료구조를 이용해서 id를 비교할 때 O(1)의 시간복잡도로 찾을 수 있도록 작성하였습니다.
@@ -386,9 +391,10 @@ export function ToastProvider({ children }) {
 - 각각 개별 슬라이드를 저장할 수 있는 PPTSlide 컬렉션을 두어 PPT 컬렉션에 해당 슬라이드 document들의 id들을 두는 방안으로 결정하였습니다.
 - 각 데이터들은 다대다 관계를 형성하게 됩니다. 이 후 데이터를 불러올 때, populate 메소드를 이용하여 전체 PPT 데이터를 불러오도록 결정하였습니다.
 
-[MongoDB 데이터 저장 이슈](https://www.notion.so/MongoDB-af0ffcac142f45a3a4919ee1fad5d706)
-<br />
-<br />
+[MongoDB 데이터 저장 이슈][]
+
+[MongoDB 데이터 저장 이슈]: https://gongjaehyeok.notion.site/MongoDB-af0ffcac142f45a3a4919ee1fad5d706
+<br/>
 
 ### ⚡️ 상태 관리 라이브러리 도입 이슈
 
@@ -416,9 +422,10 @@ export function ToastProvider({ children }) {
 - Redux를 이용해 전역 상태를 관리하였습니다.
 - redux-toolkit의 사용으로 boilerplate 코드 작성을 줄일 수 있도록 결정하였습니다.
 
-[상태관리 라이브러리 필요성 및 선택 이슈](https://www.notion.so/1df8f2d1bb804699ab6f679c38b16a48)
-<br />
-<br />
+[상태관리 라이브러리 필요성 및 선택 이슈][]
+
+[상태관리 라이브러리 필요성 및 선택 이슈]: https://gongjaehyeok.notion.site/1df8f2d1bb804699ab6f679c38b16a48
+<br/>
 
 ### ⚡️ 사용자 관리 이슈
 
@@ -449,8 +456,9 @@ export function ToastProvider({ children }) {
 - ‘작업한 파일을 다시 내려받을 수 있게 한다.’라는 원래의 아이디어 목표를 가져가면서, 기능을 거의 추가하지 않을 수 있었습니다.
 - 그에 따라서 부가적인 부분에 대한 기능 수고를 덜 수 있게 되었고, 핵심적인 기능 개발에 집중할 수 있게 되었습니다.
 
-[유저 로그인 기능 추가 이슈](https://www.notion.so/ccc2163c33e841e0811e362393517d70)
-<br />
+[유저 로그인 기능 추가 이슈][]
+
+[유저 로그인 기능 추가 이슈]: https://gongjaehyeok.notion.site/ccc2163c33e841e0811e362393517d70
 <br />
 
 ## 👋 프로젝트 진행
@@ -459,6 +467,8 @@ export function ToastProvider({ children }) {
 
 - 아이디어 기획, 목업 작성, 애자일 스프린트 플랜 : 1주
 - 프로젝트 개발, 배포, 테스트 : 2주
+
+[Mockup][]
 
 #### 프로젝트 프로세스
 
