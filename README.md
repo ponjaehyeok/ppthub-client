@@ -237,9 +237,9 @@ Slide 자체의 `diff`가 `“added”` 혹은 `“deleted”`, `“none”`이�
 
 Merge 작업을 용이하게 하는 것도 고려하였습니다. Merge 작업은 사용자가 선택한 요소만을 조합해 합치게 됩니다.
 
-처음 고려한 방안은 별도로 merge 
+처음 고려한 방안은 별도로 Merge Data를 만드는 것이나, 구현 단순화를 위해 Diff Data를 활용하였습니다.
 
-`isChecked`라는 boolean 프로퍼티를 만들어 분기처리를 가져가기 편하도록 만들었습니다.
+Slide Data 혹은 Item Data 내부에 `isChecked`라는 boolean 프로퍼티를 만들어 분기처리를 가져가기 편하도록 만들었습니다.
 <br/>
 <br/>
 
@@ -277,9 +277,9 @@ PPT 파일을 보여주거나 편집할 때 사용자가 최대한 직관적으�
 
 ```
 
-이를 위해서 Rendering 시 데이터 구조를 위와 같이 나타냈습니다. 위의 Diff 데이터에서 isHovered라는 값이 추가 되었는데요.
+이를 위해서 Rendering 시 데이터 구조를 위와 같이 나타냈습니다. 위의 Diff Data에서 isHovered라는 값이 추가 되었는데요.
 
-같은 Diff 데이터를 두 개의 Slide Viewer와 사이드 바로 모두 렌더링 되기 때문에, isHovered 값을 바꾸면 세 부분 다 렌더링이 바뀌게 됩니다.
+같은 Diff Data 두 개의 Slide Viewer와 사이드 바로 모두 렌더링 되기 때문에, isHovered 값을 바꾸면 세 부분 다 렌더링이 바뀌게 됩니다.
 <br/>
 <br />
 
